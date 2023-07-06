@@ -1,0 +1,8 @@
+{
+  "devDependencies": {
+    "sass": "^1.63.6"
+  },
+  "dependencies": {
+    "react-icons": "^4.10.1"
+  }
+}

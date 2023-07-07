@@ -5,7 +5,7 @@ import MainHeader from "./Components/MainSection/MainHeader";
 function App() {
   return (
     <React.Fragment>
-      <NavBar></NavBar>
+      <MainHeader></MainHeader>
     </React.Fragment>
   );
 }

@@ -1,0 +1,74 @@
+.mealSection {
+  width: 50%;
+  background-color: white;
+  padding: 2em;
+  margin-inline: auto;
+  border-radius: 10px;
+  margin-top: 1.4em;
+  margin-bottom: 0.6em;
+}
+.MealSectionBody {
+  display: flex;
+  justify-content: space-between;
+}
+.mealSectionText {
+  display: flex;
+  flex-direction: column;
+}
+.mealSectionText h4 {
+  font-style: italic;
+  margin: 0.4em 0 0.4em 0;
+}
+.mealSectionText h2 {
+  font-size: 1.4em;
+  margin-top: 0.8em;
+}
+.mealSectionText h2:first-child {
+  margin-top: 0;
+}
+.mealSectionText h1 {
+  color: rgb(179, 106, 42);
+  font-size: 1.3em;
+  margin-bottom: 1em;
+}
+.mealSectionLogic {
+  display: flex;
+  flex-direction: column;
+}
+.mealSectionInput {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 0.6em;
+}
+.mealSectionInput input {
+  width: 50px;
+}
+.mealSectionLogic button {
+  background-color: rgb(125, 41, 41);
+  color: white;
+  width: 100px;
+  height: 30px;
+  border: none;
+  border-radius: 30px;
+  margin-bottom: 1.5em;
+}
+.mealSectionInput h2 {
+  font-size: 1em;
+  margin-right: 0.4em;
+}
+.line {
+  display: none;
+}
+@media screen and (max-width: 400px) {
+  .mealSection {
+    width: 90%;
+  }
+  .MealSectionBody {
+    flex-direction: column;
+  }
+}
+@media screen and (min-width: 401px) and (max-width: 950px) {
+  .mealSection {
+    width: 90%;
+  }
+}

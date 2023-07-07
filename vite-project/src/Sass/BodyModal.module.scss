@@ -1,0 +1,26 @@
+.BodyModal {
+  width: 50%;
+  color: white;
+  text-align: center;
+  letter-spacing: 1.5px;
+  line-height: 1.1;
+  margin-inline: auto;
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.277);
+  padding: 2em;
+  border-radius: 10px;
+  z-index: 10;
+  top: -350px;
+}
+.BodyModal h1 {
+  margin-bottom: 1.3em;
+}
+.BodyModal h4 {
+  margin-top: 1em;
+  font-weight: 300;
+}
+@media screen and (max-width: 706px) {
+  .BodyModal {
+    width: 95%;
+  }
+}

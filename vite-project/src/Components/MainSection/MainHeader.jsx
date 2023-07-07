@@ -1,15 +1,14 @@
 import React from "react";
 import NavBar from "../NavBar/NavBar";
 import BodyModal from "../Body/BodyModal";
+import MainBody from "../../Sass/MainHeader.module.scss";
 
 const MainHeader = () => {
   return (
-    <>
-      <div>
-        <NavBar></NavBar>
-        <BodyModal></BodyModal>
-      </div>
-    </>
+    <React.Fragment>
+      <NavBar></NavBar>
+      <BodyModal></BodyModal>
+    </React.Fragment>
   );
 };
 

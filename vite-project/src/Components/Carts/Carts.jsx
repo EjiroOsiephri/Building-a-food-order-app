@@ -1,4 +1,4 @@
-import Modal from "../Body/MealBox";
+import MealBox from "../Body/MealBox";
 
 const Carts = () => {
   const MealBoxArray = [
@@ -9,7 +9,7 @@ const Carts = () => {
     },
   ];
   return (
-    <Modal>
+    <MealBox>
       <main className="mealClassifications">
         <h1>{MealBoxArray[0].name}</h1>
         <section className="mealOrders">
@@ -23,7 +23,7 @@ const Carts = () => {
         <button>-</button>
         <button>+</button>
       </aside>
-    </Modal>
+    </MealBox>
   );
 };
 

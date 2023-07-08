@@ -1,5 +1,6 @@
 import MealBoxStyles from "../../Sass/Mealbox.module.scss";
 import React from "react";
+import ReactDOM from "react-dom";
 
 const Modal = (props) => {
   return (
@@ -12,13 +13,15 @@ const BackDropOverlay = (props) => {
   return <div className={MealBoxStyles.backdrop}></div>;
 };
 
+const portalElement = document.getElementById("overlays");
+
 const MealBox = (props) => {
   return (
     <React.Fragment>
-      <Modal></Modal>
-      <BackDropOverlay></BackDropOverlay>
+      {ReactDOM.createPortal(<Modal>{props.children}</Modal>, portalElement)}
+      {ReactDOM.createPortal(<BackDropOverlay />, portalElement)}
     </React.Fragment>
   );
 };
 
-export default Modal;
+export default MealBox;

@@ -1,0 +1,42 @@
+.totalMeals {
+  display: flex;
+  justify-content: space-between;
+}
+.mealOrders {
+  display: flex;
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+.mealOrders p {
+  margin-right: 2em;
+  color: rgb(125, 41, 41);
+  font-weight: 600;
+}
+.mealOrderValue {
+  border: 1px solid gainsboro;
+  background-color: #ffffff;
+  font-weight: 700;
+  border-radius: 5px;
+}
+.mealOrders .mealOrderValue p {
+  margin-left: 1.2em;
+  color: rgb(117, 46, 46);
+}
+button {
+  width: 80px;
+  height: 35px;
+  border: 1px solid rgb(117, 46, 46);
+  margin-right: 0.1em;
+  border-radius: 10px;
+  font-size: 19px;
+  color: rgb(117, 46, 46);
+  background: transparent;
+  font-weight: 800;
+}
+button:hover {
+  transition: 0.5s ease-in-out;
+  background: rgb(125, 41, 41);
+  color: #ffffff;
+  width: 85px;
+  height: 38px;
+}

@@ -29,7 +29,10 @@
 .mealSectionText h1 {
   color: rgb(179, 106, 42);
   font-size: 1.3em;
-  margin-bottom: 1em;
+  margin-bottom: 0.3em;
+}
+hr {
+  margin: 0.4em 0 0.4em 0;
 }
 .mealSectionLogic {
   display: flex;
@@ -54,13 +57,13 @@
 }
 .mealSectionInput label {
   font-size: 1em;
-  margin-left: 0.8em;
   font-weight: 700;
+  margin-top: 0.3em;
 }
 .line {
   display: initial;
 }
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 573px) {
   .mealSection {
     width: 90%;
   }

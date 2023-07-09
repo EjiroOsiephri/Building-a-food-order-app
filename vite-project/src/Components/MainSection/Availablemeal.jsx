@@ -42,6 +42,7 @@ function Availablemeal() {
                 <h2>{item.Name}</h2>
                 <h4>{item.Ingredients}</h4>
                 <h1>{item.Amount}</h1>
+                <hr />
               </div>
               <aside className={MainBody.mealSectionLogic}>
                 <div className={MainBody.mealSectionInput}>
@@ -53,6 +54,7 @@ function Availablemeal() {
                     Amount={MealSection.Amount}
                   />
                 </div>
+                <hr />
               </aside>
             </aside>
           );

@@ -40,3 +40,8 @@ button:hover {
   width: 85px;
   height: 38px;
 }
+@media screen and (max-width: 600px) {
+  .mealOrders {
+    flex-direction: column;
+  }
+}

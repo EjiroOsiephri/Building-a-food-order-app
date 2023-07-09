@@ -1,12 +1,12 @@
 import React from "react";
-import NavBar from "./Components/NavBar/NavBar";
 import MainHeader from "./Components/MainSection/MainHeader";
+import CartProvider from "./Context/CartProvider";
 
 function App() {
   return (
-    <React.Fragment>
+    <CartProvider>
       <MainHeader></MainHeader>
-    </React.Fragment>
+    </CartProvider>
   );
 }
 

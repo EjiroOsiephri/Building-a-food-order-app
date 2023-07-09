@@ -4,12 +4,13 @@ import { BsCart4 } from "react-icons/bs";
 import HomeImg from "../../assets/meals.jpg";
 import Carts from "../Carts/Carts";
 
-const NavBar = () => {
+const NavBar = (props) => {
   const [cart, setCart] = useState(false);
 
   function showCart() {
     setCart((prevValue) => !prevValue);
   }
+
   return (
     <React.Fragment>
       <nav className={Nav.navbar}>
@@ -18,7 +19,7 @@ const NavBar = () => {
           <BsCart4></BsCart4>
           <h4>Your Cart</h4>
           <div className={Nav.count}>
-            <p>0</p>
+            <p>3</p>
           </div>
         </div>
       </nav>

@@ -1,6 +1,6 @@
 import React from "react";
 
-const CartContex = React.createContext({
+const AuthContext = React.createContext({
   cartVisibility: true,
   item: [],
   removeItemHandler: (id) => {},
@@ -8,4 +8,4 @@ const CartContex = React.createContext({
   totalAmont: 0,
 });
 
-export default CartContex;
+export default AuthContext;

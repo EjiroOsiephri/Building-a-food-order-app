@@ -1,16 +1,19 @@
-import React from "react";
-import MainBody from "../../Sass/MainHeader.module.scss";
+import React, { useContext, useState } from "react";
 import Input from "./Input";
 import { useRef } from "react";
+import CartContex from "../../Context/CartContext";
 
 const MealItemForm = (props) => {
   const amountInputRef = useRef();
 
+  const ctx = useContext(CartContex);
+
+  const [addMeal, showMealCart] = useState();
+
   const submitHandler = (event) => {
     event.preventDefault();
-
-    const enteredAmount = amountInputRef.current.value;
-    console.log(enteredAmount);
+    showMealCart(ctx.mealSectionArray[props.index][0]);
+    props.addMeals(addMeal);
   };
 
   return (

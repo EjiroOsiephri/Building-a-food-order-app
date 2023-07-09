@@ -34,16 +34,16 @@ function Availablemeal() {
   ];
   return (
     <React.Fragment>
-      <div className={MainBody.mealSection}>
+      <main className={MainBody.mealSection}>
         {MealSection.map((item) => {
           return (
-            <div key={item.id} className={MainBody.MealSectionBody}>
+            <aside key={item.id} className={MainBody.MealSectionBody}>
               <div className={MainBody.mealSectionText}>
                 <h2>{item.Name}</h2>
                 <h4>{item.Ingredients}</h4>
                 <h1>{item.Amount}</h1>
               </div>
-              <div className={MainBody.mealSectionLogic}>
+              <aside className={MainBody.mealSectionLogic}>
                 <div className={MainBody.mealSectionInput}>
                   <label htmlFor={MealSection.id}>Amount</label>
                   <MealItemForm
@@ -53,14 +53,11 @@ function Availablemeal() {
                     Amount={MealSection.Amount}
                   />
                 </div>
-              </div>
-              <div className={MainBody.line}>
-                <hr />
-              </div>
-            </div>
+              </aside>
+            </aside>
           );
         })}
-      </div>
+      </main>
     </React.Fragment>
   );
 }

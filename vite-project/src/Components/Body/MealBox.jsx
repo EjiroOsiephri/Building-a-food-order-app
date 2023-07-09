@@ -9,6 +9,7 @@ const Modal = (props) => {
     </div>
   );
 };
+
 const BackDropOverlay = (props) => {
   return <div className={MealBoxStyles.backdrop}></div>;
 };

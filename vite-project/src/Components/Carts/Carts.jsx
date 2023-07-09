@@ -1,4 +1,5 @@
 import MealBox from "../Body/MealBox";
+import Classes from "../../Sass/Carts.module.scss";
 
 const Carts = () => {
   const MealBoxArray = [

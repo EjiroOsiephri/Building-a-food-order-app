@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import MealItemForm from "./MealItemForm";
 import MainBody from "../../Sass/MainHeader.module.scss";
 import CartContex from "../../Context/CartContext";
+import Carts from "../Carts/Carts";
 
 function Availablemeal() {
-  const [mealCart, setMealToCart] = useState();
+  const [mealCart, setMealToCart] = useState(null);
 
   const MealSection = {
     FirstArr: [
@@ -61,7 +62,6 @@ function Availablemeal() {
                 <h2>{item[0].Name}</h2>
                 <h4>{item[0].Ingredients}</h4>
                 <h1>{item[0].Amount}</h1>
-                <hr />
               </div>
               <aside className={MainBody.mealSectionLogic}>
                 <div className={MainBody.mealSectionInput}>
@@ -80,6 +80,7 @@ function Availablemeal() {
             </aside>
           );
         })}
+        {<Carts></Carts>}
       </main>
     </CartContex.Provider>
   );

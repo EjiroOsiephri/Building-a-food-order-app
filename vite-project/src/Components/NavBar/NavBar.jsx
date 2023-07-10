@@ -1,15 +1,21 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Nav from "../../Sass/NavBar.module.scss";
 import { BsCart4 } from "react-icons/bs";
 import HomeImg from "../../assets/meals.jpg";
 import Carts from "../Carts/Carts";
+import CartContex from "../../Context/CartContext";
 
 const NavBar = (props) => {
+  const cartCtx = useContext(CartContex);
+
   const [cart, setCart] = useState(false);
+  const [cartText, setCartText] = useState("");
 
   function showCart() {
     setCart((prevValue) => !prevValue);
   }
+
+  console.log(cartCtx.addMealsToCart);
 
   return (
     <React.Fragment>

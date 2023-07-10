@@ -8,12 +8,11 @@ const MealItemForm = (props) => {
 
   const ctx = useContext(CartContex);
 
-  const [addMeal, showMealCart] = useState();
-
   const submitHandler = (event) => {
     event.preventDefault();
-    showMealCart(ctx.mealSectionArray[props.index][0]);
-    props.addMeals(addMeal);
+    const selectedMeal = ctx.mealSectionArray[props.index][0];
+    props.addMeals(selectedMeal);
+    console.log(selectedMeal);
   };
 
   return (

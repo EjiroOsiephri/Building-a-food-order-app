@@ -4,12 +4,18 @@ import { BsCart4 } from "react-icons/bs";
 import HomeImg from "../../assets/meals.jpg";
 import Carts from "../Carts/Carts";
 
-const NavBar = () => {
+const NavBar = (props) => {
   const [cart, setCart] = useState(false);
+  const [mealValue, setMealValue] = useState(0);
+
+  function valueInCart(item) {
+    setMealValue(item);
+  }
 
   function showCart() {
     setCart((prevCartValue) => !prevCartValue);
   }
+  console.log(mealValue);
 
   return (
     <React.Fragment>
@@ -19,14 +25,14 @@ const NavBar = () => {
           <BsCart4></BsCart4>
           <h4>Your Cart</h4>
           <div className={Nav.count}>
-            <p>3</p>
+            <p>{mealValue}</p>
           </div>
         </div>
       </nav>
       <div className={Nav.image}>
         <img className={Nav["Curved-img"]} src={HomeImg} alt="" />
       </div>
-      {cart && <Carts></Carts>}
+      {cart && <Carts noOfValueInCart={valueInCart}></Carts>}
     </React.Fragment>
   );
 };

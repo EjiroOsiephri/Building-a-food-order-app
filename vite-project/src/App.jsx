@@ -8,7 +8,12 @@ function App() {
   const [mealCart, setMealCart] = useState([]);
 
   const addMealsToCart = (item) => {
-    setMealCart((prevValue) => [...prevValue, item]);
+    const existingItem = mealCart.find((cartItem) => cartItem.id === item.id);
+    if (existingItem) {
+      console.log("Item already exists in the cart!");
+    } else {
+      setMealCart((prevValue) => [...prevValue, item]);
+    }
   };
 
   return (

@@ -2,14 +2,16 @@ import MealBox from "../Body/MealBox";
 import Classes from "../../Sass/Carts.module.scss";
 import CheckoutForm from "../Checkout/CheckoutForm";
 import CartContex from "../../Context/CartContext";
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 
-const Carts = () => {
+const Carts = (props) => {
   const [cart, showCart] = useState(false);
 
   const cartCtx = useContext(CartContex);
 
   const cartHasItems = cartCtx.mealCart.length > 0;
+
+  props.noOfValueInCart(cartCtx.mealCart.length);
 
   return (
     <CartContex.Provider
@@ -36,13 +38,14 @@ const Carts = () => {
                         <p>{"x4"}</p>
                       </div>
                     </section>
+                    {/* <aside>
+                      <button className={Classes.button}>-</button>
+                      <button className={Classes.button}>+</button>
+                    </aside> */}
+                    <hr />
                   </main>
                 );
               })}
-              <aside>
-                <button>-</button>
-                <button>+</button>
-              </aside>
             </section>
           )}
           <CheckoutForm cartHasItems={cartHasItems}></CheckoutForm>

@@ -31,7 +31,7 @@
   margin-left: 0.7em;
   color: rgb(117, 46, 46);
 }
-aside > button {
+aside > .button {
   width: 80px;
   height: 35px;
   border: 1px solid rgb(117, 46, 46);
@@ -43,7 +43,7 @@ aside > button {
   margin-bottom: 1.2rem;
   font-weight: 800;
 }
-button:hover {
+.button:hover {
   transition: 0.5s ease-in-out;
   background: rgb(125, 41, 41);
   color: #ffffff;
@@ -62,5 +62,10 @@ button:hover {
   }
   .totalMeals {
     flex-direction: column;
+  }
+}
+@media screen and (max-width: 599px) {
+  .mealOrderValue {
+    margin-top: 0.4rem;
   }
 }

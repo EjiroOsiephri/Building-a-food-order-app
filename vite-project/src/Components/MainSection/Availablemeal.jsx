@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import MealItemForm from "./MealItemForm";
 import MainBody from "../../Sass/MainHeader.module.scss";
 import CartContex from "../../Context/CartContext";
 
 function Availablemeal(props) {
+  const [arrayItemsValue, setArrayItemsValue] = useState(1);
   const MealSection = {
     FirstArr: [
       {
@@ -48,6 +49,10 @@ function Availablemeal(props) {
     props.addMeals(item);
   };
 
+  function arrayItems(item) {
+    props.arrayItems(item);
+  }
+
   return (
     <CartContex.Provider
       value={{
@@ -70,6 +75,7 @@ function Availablemeal(props) {
                     index={index}
                     item={item[0]}
                     addMeals={addMeals}
+                    arrayItems={arrayItems}
                   />
                 </div>
                 <hr />

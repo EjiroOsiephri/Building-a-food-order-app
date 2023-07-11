@@ -11,7 +11,10 @@ const CheckoutForm = (props) => {
           <h1>$60</h1>
         </div>
       )}
-      <CheckoutButton cartHasItems={props.cartHasItems}></CheckoutButton>
+      <CheckoutButton
+        onClick={props.onClick}
+        cartHasItems={props.cartHasItems}
+      ></CheckoutButton>
     </React.Fragment>
   );
 };

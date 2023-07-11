@@ -4,15 +4,9 @@ import { useContext } from "react";
 import CartContex from "../../Context/CartContext";
 
 const CheckoutButton = (props) => {
-  const ctx = useContext(CartContex);
-
-  function closeCart(props) {
-    ctx.closeBtn(true);
-  }
-
   return (
     <div className={Button.div}>
-      <button onClick={closeCart} className={Button.close}>
+      <button onClick={props.onClick} className={Button.close}>
         Close
       </button>
       {props.cartHasItems && <button className={Button.order}>Order</button>}

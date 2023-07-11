@@ -4,15 +4,7 @@ import CheckoutForm from "../Checkout/CheckoutForm";
 import CartContex from "../../Context/CartContext";
 import { useState, useContext } from "react";
 
-const Carts = (props) => {
-  const MealBoxArray = [
-    {
-      name: "Sushi",
-      Amount: "3000",
-      orders: "× 1",
-    },
-  ];
-
+const Carts = () => {
   const [cart, showCart] = useState(false);
 
   const cartCtx = useContext(CartContex);
@@ -27,26 +19,33 @@ const Carts = (props) => {
     >
       {!cart && (
         <MealBox>
-          <section className={Classes.totalMeals}>
-            {cartCtx.mealCart.map((item) => {
-              return (
-                <main className={Classes.mealClassifications}>
-                  <h1>{item.Name}</h1>
-                  <section className={Classes.mealOrders}>
-                    <p>${item.Amount}</p>
-                    <div className={Classes.mealOrderValue}>
-                      <p>{}</p>
-                    </div>
-                  </section>
-                  <hr />
-                </main>
-              );
-            })}
-            <aside>
-              <button>-</button>
-              <button>+</button>
-            </aside>
-          </section>
+          {!cartHasItems ? (
+            <h1 className={Classes.noCartData}>
+              No orders yet?, No worries. Click on the add button to place an
+              order
+            </h1>
+          ) : (
+            <section className={Classes.totalMeals}>
+              {cartCtx.mealCart.map((item) => {
+                return (
+                  <main className={Classes.mealClassifications}>
+                    <h1>{item.Name}</h1>
+                    <section className={Classes.mealOrders}>
+                      <p>${item.Amount}</p>
+                      <div className={Classes.mealOrderValue}>
+                        <p>{}</p>
+                      </div>
+                    </section>
+                    <hr />
+                  </main>
+                );
+              })}
+              <aside>
+                <button>-</button>
+                <button>+</button>
+              </aside>
+            </section>
+          )}
           <CheckoutForm cartHasItems={cartHasItems}></CheckoutForm>
         </MealBox>
       )}

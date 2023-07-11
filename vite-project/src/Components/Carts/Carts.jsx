@@ -21,22 +21,21 @@ const Carts = () => {
         <MealBox>
           {!cartHasItems ? (
             <h1 className={Classes.noCartData}>
-              No orders yet?, No worries. Click on the add button to place an
-              order
+              No orders yet? No worries, Click on the add button to place an
+              order.
             </h1>
           ) : (
             <section className={Classes.totalMeals}>
-              {cartCtx.mealCart.map((item) => {
+              {cartCtx.mealCart.map((item, index) => {
                 return (
-                  <main className={Classes.mealClassifications}>
+                  <main key={index} className={Classes.mealClassifications}>
                     <h1>{item.Name}</h1>
                     <section className={Classes.mealOrders}>
                       <p>${item.Amount}</p>
                       <div className={Classes.mealOrderValue}>
-                        <p>{}</p>
+                        <p>{"x4"}</p>
                       </div>
                     </section>
-                    <hr />
                   </main>
                 );
               })}

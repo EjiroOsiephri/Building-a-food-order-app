@@ -5,10 +5,12 @@ import Classes from "../../Sass/Checkoutform.module.scss";
 const CheckoutForm = (props) => {
   return (
     <React.Fragment>
-      <div className={Classes.checkOutFormText}>
-        <h1>Total Amount</h1>
-        <h1>$60</h1>
-      </div>
+      {props.cartHasItems && (
+        <div className={Classes.checkOutFormText}>
+          <h1>Total Amount</h1>
+          <h1>$60</h1>
+        </div>
+      )}
       <CheckoutButton cartHasItems={props.cartHasItems}></CheckoutButton>
     </React.Fragment>
   );

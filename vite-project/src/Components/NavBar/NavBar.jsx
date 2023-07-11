@@ -32,7 +32,7 @@ const NavBar = (props) => {
       <div className={Nav.image}>
         <img className={Nav["Curved-img"]} src={HomeImg} alt="" />
       </div>
-      {cart && <Carts noOfValueInCart={valueInCart}></Carts>}
+      {<Carts noOfValueInCart={valueInCart}></Carts>}
     </React.Fragment>
   );
 };

@@ -3,10 +3,10 @@ import Button from "../../Sass/Button.module.scss";
 import { useContext } from "react";
 import CartContex from "../../Context/CartContext";
 
-const CheckoutButton = () => {
+const CheckoutButton = (props) => {
   const ctx = useContext(CartContex);
 
-  function closeCart() {
+  function closeCart(props) {
     ctx.closeBtn(true);
   }
 
@@ -15,7 +15,7 @@ const CheckoutButton = () => {
       <button onClick={closeCart} className={Button.close}>
         Close
       </button>
-      <button className={Button.order}>Order</button>
+      {props.cartHasItems && <button className={Button.order}>Order</button>}
     </div>
   );
 };

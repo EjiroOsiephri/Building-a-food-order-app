@@ -2,14 +2,14 @@ import React from "react";
 import CheckoutButton from "./CheckoutButton";
 import Classes from "../../Sass/Checkoutform.module.scss";
 
-const CheckoutForm = () => {
+const CheckoutForm = (props) => {
   return (
     <React.Fragment>
       <div className={Classes.checkOutFormText}>
         <h1>Total Amount</h1>
         <h1>$60</h1>
       </div>
-      <CheckoutButton></CheckoutButton>
+      <CheckoutButton cartHasItems={props.cartHasItems}></CheckoutButton>
     </React.Fragment>
   );
 };

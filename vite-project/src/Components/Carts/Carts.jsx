@@ -2,9 +2,9 @@ import MealBox from "../Body/MealBox";
 import Classes from "../../Sass/Carts.module.scss";
 import CheckoutForm from "../Checkout/CheckoutForm";
 import CartContex from "../../Context/CartContext";
-import { useState } from "react";
+import { useState, useContext } from "react";
 
-const Carts = () => {
+const Carts = (props) => {
   const MealBoxArray = [
     {
       name: "Sushi",
@@ -15,6 +15,10 @@ const Carts = () => {
 
   const [cart, showCart] = useState(false);
 
+  const cartCtx = useContext(CartContex);
+
+  const cartHasItems = cartCtx.mealCart.length > 0;
+
   return (
     <CartContex.Provider
       value={{
@@ -24,22 +28,26 @@ const Carts = () => {
       {!cart && (
         <MealBox>
           <section className={Classes.totalMeals}>
-            <main className={Classes.mealClassifications}>
-              <h1>{MealBoxArray[0].name}</h1>
-              <section className={Classes.mealOrders}>
-                <p>${MealBoxArray[0].Amount}</p>
-                <div className={Classes.mealOrderValue}>
-                  <p>{MealBoxArray[0].orders}</p>
-                </div>
-              </section>
-              <hr />
-            </main>
+            {cartCtx.mealCart.map((item) => {
+              return (
+                <main className={Classes.mealClassifications}>
+                  <h1>{item.Name}</h1>
+                  <section className={Classes.mealOrders}>
+                    <p>${item.Amount}</p>
+                    <div className={Classes.mealOrderValue}>
+                      <p>{}</p>
+                    </div>
+                  </section>
+                  <hr />
+                </main>
+              );
+            })}
             <aside>
               <button>-</button>
               <button>+</button>
             </aside>
           </section>
-          <CheckoutForm></CheckoutForm>
+          <CheckoutForm cartHasItems={cartHasItems}></CheckoutForm>
         </MealBox>
       )}
     </CartContex.Provider>

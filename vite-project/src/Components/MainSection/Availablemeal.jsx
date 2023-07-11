@@ -1,12 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import MealItemForm from "./MealItemForm";
 import MainBody from "../../Sass/MainHeader.module.scss";
 import CartContex from "../../Context/CartContext";
-import Carts from "../Carts/Carts";
 
-function Availablemeal() {
-  const [mealCart, setMealToCart] = useState(null);
-
+function Availablemeal(props) {
   const MealSection = {
     FirstArr: [
       {
@@ -44,13 +41,12 @@ function Availablemeal() {
   const mealSectionArray = Object.values(MealSection);
 
   const addMeals = (item) => {
-    setMealToCart(item);
+    props.addMeals(item);
   };
 
   return (
     <CartContex.Provider
       value={{
-        addMealsToCart: mealCart,
         mealSectionArray: mealSectionArray,
       }}
     >
@@ -68,10 +64,7 @@ function Availablemeal() {
                   <label htmlFor={mealSectionArray[0].id}>Amount</label>
                   <MealItemForm
                     index={index}
-                    Name={mealSectionArray[0].Name}
-                    id={mealSectionArray[0].id}
-                    Ingredients={mealSectionArray[0].Ingredients}
-                    Amount={mealSectionArray[0].Amount}
+                    item={item[0]}
                     addMeals={addMeals}
                   />
                 </div>
@@ -80,7 +73,6 @@ function Availablemeal() {
             </aside>
           );
         })}
-        {<Carts></Carts>}
       </main>
     </CartContex.Provider>
   );

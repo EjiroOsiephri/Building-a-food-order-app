@@ -1,10 +1,18 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Nav from "../../Sass/NavBar.module.scss";
 import { BsCart4 } from "react-icons/bs";
 import HomeImg from "../../assets/meals.jpg";
 import Carts from "../Carts/Carts";
+import CartContex from "../../Context/CartContext";
 
 const NavBar = (props) => {
+  const cartCtx = useContext(CartContex);
+
+  const numberOfCartItems = cartCtx.mealCart.reduce((curNumber, item) => {
+    console.log(curNumber, item);
+    return curNumber + item.quantity;
+  }, 0);
+
   return (
     <React.Fragment>
       <nav className={Nav.navbar}>
@@ -13,7 +21,7 @@ const NavBar = (props) => {
           <BsCart4></BsCart4>
           <h4>Your Cart</h4>
           <div className={Nav.count}>
-            <p>{props.mealValue}</p>
+            <p>{numberOfCartItems}</p>
           </div>
         </div>
       </nav>

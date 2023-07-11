@@ -38,6 +38,7 @@ function App() {
       setMealCart((prevValue) => [...prevValue, item]);
     }
   };
+  console.log(arrayItemsValue);
   return (
     <CartContex.Provider
       value={{
@@ -45,12 +46,12 @@ function App() {
         arrayItemsValue: arrayItemsValue,
       }}
     >
-      {cartIsShown && (
-        <Carts onClick={hideCart} noOfValueInCart={valueInCart}></Carts>
-      )}
       <NavBar mealValue={mealValue} onShowCart={showCart} />
       <MainHeader />
       <Availablemeal arrayItems={arrayItems} addMeals={addMealsToCart} />
+      {cartIsShown && (
+        <Carts onClick={hideCart} noOfValueInCart={valueInCart} />
+      )}
     </CartContex.Provider>
   );
 }

@@ -12,7 +12,7 @@ function Availablemeal(props) {
         Ingredients: "Rice and Chicken",
         Amount: 1200,
         id: "m1",
-        quantity: 0,
+        quantity: 1,
       },
     ],
     SecondArr: [
@@ -21,7 +21,7 @@ function Availablemeal(props) {
         Ingredients: "Garri and White-Seed-Melon",
         Amount: 1500,
         id: "m2",
-        quantity: 0,
+        quantity: 1,
       },
     ],
     ThirdArr: [
@@ -30,7 +30,7 @@ function Availablemeal(props) {
         Ingredients: "Finest fish and vegies",
         Amount: 3000,
         id: "m3",
-        quantity: 0,
+        quantity: 1,
       },
     ],
     FourthArr: [
@@ -39,7 +39,7 @@ function Availablemeal(props) {
         Ingredients: "American, raw and healthy",
         Amount: 1500,
         id: "m4",
-        quantity: 0,
+        quantity: 1,
       },
     ],
   };

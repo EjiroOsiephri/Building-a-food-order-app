@@ -37,7 +37,7 @@ const Carts = (props) => {
                     <section className={Classes.mealOrders}>
                       <p>${item.Amount}</p>
                       <div className={Classes.mealOrderValue}>
-                        <p>{"x1"}</p>
+                        <p>{cartCtx.arrayItemsValue}</p>
                       </div>
                     </section>
                     {/* <aside>

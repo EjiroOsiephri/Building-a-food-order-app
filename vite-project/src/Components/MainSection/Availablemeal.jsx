@@ -4,7 +4,6 @@ import MainBody from "../../Sass/MainHeader.module.scss";
 import CartContex from "../../Context/CartContext";
 
 function Availablemeal(props) {
-  const [arrayItemsValue, setArrayItemsValue] = useState(1);
   const MealSection = {
     FirstArr: [
       {

@@ -1,7 +1,5 @@
 import React from "react";
 import Button from "../../Sass/Button.module.scss";
-import { useContext } from "react";
-import CartContex from "../../Context/CartContext";
 
 const CheckoutButton = (props) => {
   return (

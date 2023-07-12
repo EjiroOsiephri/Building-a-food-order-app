@@ -1,28 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 import Input from "./Input";
-import { useRef } from "react";
+import CartContext from "../../Context/CartContext";
 
 const MealItemForm = (props) => {
-  const amountInputRef = useRef();
+  const [amount, setAmount] = useState(1);
 
   const submitHandler = (event) => {
     event.preventDefault();
-    props.addMeals(props.item);
-    props.arrayItems(amountInputRef.current?.value);
+    const enteredAmount = parseInt(amount);
+    props.addMeals({ ...props.item, amount: enteredAmount });
+    // Pass the selected amount back to the App component
+  };
+
+  const amountChangeHandler = (event) => {
+    setAmount(event.target.value);
   };
 
   return (
     <React.Fragment>
       <form onSubmit={submitHandler}>
         <Input
-          ref={amountInputRef}
           label="Amount"
           input={{
             id: "Amount_" + props.item.id,
             type: "number",
             min: "1",
             max: "5",
-            defaultValue: "1",
+            value: amount,
+            onChange: amountChangeHandler,
           }}
         />
         <button>+ Add</button>

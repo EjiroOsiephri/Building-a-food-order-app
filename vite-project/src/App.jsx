@@ -8,12 +8,6 @@ import Carts from "./Components/Carts/Carts";
 function App() {
   const [mealCart, setMealCart] = useState([]);
 
-  const [arrayItemsValue, setArrayItemsValue] = useState(1);
-
-  function arrayItems(item) {
-    setArrayItemsValue(item);
-  }
-
   const [cartIsShown, setCartIsShown] = useState(false);
 
   function showCart() {
@@ -38,17 +32,16 @@ function App() {
       setMealCart((prevValue) => [...prevValue, item]);
     }
   };
-  console.log(arrayItemsValue);
+
   return (
     <CartContex.Provider
       value={{
         mealCart: mealCart,
-        arrayItemsValue: arrayItemsValue,
       }}
     >
       <NavBar mealValue={mealValue} onShowCart={showCart} />
       <MainHeader />
-      <Availablemeal arrayItems={arrayItems} addMeals={addMealsToCart} />
+      <Availablemeal addMeals={addMealsToCart} />
       {cartIsShown && (
         <Carts onClick={hideCart} noOfValueInCart={valueInCart} />
       )}

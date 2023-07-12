@@ -8,7 +8,7 @@ const NavBar = (props) => {
   const cartCtx = useContext(CartContex);
 
   const numberOfCartItems = cartCtx.mealCart.reduce((curNumber, item) => {
-    return curNumber + item.quantity;
+    return curNumber + item.totalValue;
   }, 0);
 
   return (

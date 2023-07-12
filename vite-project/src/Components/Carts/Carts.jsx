@@ -26,6 +26,20 @@ const Carts = (props) => {
     cartCtx.setMealCart(updatedArray);
   };
 
+  const addItem = (id) => {
+    cartCtx.setMealCart((prevCart) =>
+      prevCart.map((item) => {
+        if (item.id === id) {
+          return {
+            ...item,
+            totalValue: item.totalValue + 1,
+          };
+        }
+        return item;
+      })
+    );
+  };
+
   return (
     <CartContex.Provider
       value={{
@@ -61,7 +75,14 @@ const Carts = (props) => {
                         >
                           -
                         </button>
-                        <button className={Classes.button}>+</button>
+                        <button
+                          onClick={() => {
+                            addItem(item.id);
+                          }}
+                          className={Classes.button}
+                        >
+                          +
+                        </button>
                       </aside>
                     </div>
                     <hr />

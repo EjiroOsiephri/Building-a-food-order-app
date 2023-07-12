@@ -7,8 +7,7 @@ const MealItemForm = (props) => {
   const submitHandler = (event) => {
     event.preventDefault();
     const enteredAmount = parseInt(amount);
-    const updatedAmount = enteredAmount + props.item.quantity;
-    props.addMeals({ ...props.item, amount: updatedAmount });
+    props.addMeals({ ...props.item, amount: enteredAmount });
   };
 
   const amountChangeHandler = (event) => {

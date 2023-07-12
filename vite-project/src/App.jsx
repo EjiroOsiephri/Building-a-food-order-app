@@ -39,7 +39,6 @@ function App() {
       setMealCart((prevValue) => [...prevValue, newItem]);
     }
   };
-  console.log(mealCart);
 
   return (
     <CartContex.Provider

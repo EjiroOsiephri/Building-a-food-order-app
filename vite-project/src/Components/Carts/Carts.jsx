@@ -16,7 +16,7 @@ const Carts = (props) => {
   const calculateTotal = () => {
     let total = 0;
     cartCtx.mealCart.forEach((item) => {
-      total += item.amount * item.Amount;
+      total += item.totalValue * item.Amount;
     });
     return total;
   };
@@ -25,6 +25,7 @@ const Carts = (props) => {
     const updatedArray = cartCtx.mealCart.filter((item) => item.id !== id);
     cartCtx.setMealCart(updatedArray);
   };
+
   return (
     <CartContex.Provider
       value={{
@@ -48,7 +49,7 @@ const Carts = (props) => {
                       <section className={Classes.mealOrders}>
                         <p>₦{item.Amount}</p>
                         <div className={Classes.mealOrderValue}>
-                          <p>{item.amount}</p>
+                          <p>{item.totalValue}</p>
                         </div>
                       </section>
                       <aside>

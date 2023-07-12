@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Input from "./Input";
-import CartContext from "../../Context/CartContext";
 
 const MealItemForm = (props) => {
   const [amount, setAmount] = useState(1);
@@ -8,7 +7,8 @@ const MealItemForm = (props) => {
   const submitHandler = (event) => {
     event.preventDefault();
     const enteredAmount = parseInt(amount);
-    props.addMeals({ ...props.item, amount: enteredAmount });
+    const updatedAmount = enteredAmount + props.item.quantity;
+    props.addMeals({ ...props.item, amount: updatedAmount });
   };
 
   const amountChangeHandler = (event) => {

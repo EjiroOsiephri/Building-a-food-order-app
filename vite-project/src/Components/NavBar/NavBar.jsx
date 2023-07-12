@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Nav from "../../Sass/NavBar.module.scss";
 import { BsCart4 } from "react-icons/bs";
 import HomeImg from "../../assets/meals.jpg";

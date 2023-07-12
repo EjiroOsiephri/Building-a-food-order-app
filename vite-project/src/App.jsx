@@ -25,13 +25,21 @@ function App() {
   }
 
   const addMealsToCart = (item) => {
-    const existingItem = mealCart.find((cartItem) => cartItem.id === item.id);
-    if (existingItem) {
-      console.log("Item already exists in the cart!");
+    const existingItemIndex = mealCart.findIndex(
+      (cartItem) => cartItem.id === item.id
+    );
+    if (existingItemIndex !== -1) {
+      const updatedCart = [...mealCart];
+      updatedCart[existingItemIndex].quantity += 1;
+      updatedCart[existingItemIndex].totalValue =
+        updatedCart[existingItemIndex].quantity * item.amount;
+      setMealCart(updatedCart);
     } else {
-      setMealCart((prevValue) => [...prevValue, item]);
+      const newItem = { ...item, quantity: 1, totalValue: item.amount };
+      setMealCart((prevValue) => [...prevValue, newItem]);
     }
   };
+  console.log(mealCart);
 
   return (
     <CartContex.Provider

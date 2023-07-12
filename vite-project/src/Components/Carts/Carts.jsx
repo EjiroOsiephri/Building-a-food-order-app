@@ -22,8 +22,24 @@ const Carts = (props) => {
   };
 
   const removeItem = (id) => {
-    const updatedArray = cartCtx.mealCart.filter((item) => item.id !== id);
-    cartCtx.setMealCart(updatedArray);
+    cartCtx.setMealCart(
+      (prevCart) =>
+        prevCart
+          .map((item) => {
+            if (item.id === id) {
+              if (item.totalValue === 1) {
+                return null;
+              } else {
+                return {
+                  ...item,
+                  totalValue: item.totalValue - 1,
+                };
+              }
+            }
+            return item;
+          })
+          .filter(Boolean) // Filter out null values (removed items)
+    );
   };
 
   const addItem = (id) => {

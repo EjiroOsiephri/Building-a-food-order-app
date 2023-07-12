@@ -9,7 +9,6 @@ const MealItemForm = (props) => {
     event.preventDefault();
     const enteredAmount = parseInt(amount);
     props.addMeals({ ...props.item, amount: enteredAmount });
-    // Pass the selected amount back to the App component
   };
 
   const amountChangeHandler = (event) => {

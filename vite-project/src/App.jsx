@@ -37,6 +37,7 @@ function App() {
     <CartContex.Provider
       value={{
         mealCart: mealCart,
+        setMealCart: setMealCart,
       }}
     >
       <NavBar mealValue={mealValue} onShowCart={showCart} />

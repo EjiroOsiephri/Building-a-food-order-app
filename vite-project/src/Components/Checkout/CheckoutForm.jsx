@@ -8,7 +8,7 @@ const CheckoutForm = (props) => {
       {props.cartHasItems && (
         <div className={Classes.checkOutFormText}>
           <h1>Total Amount</h1>
-          <h1>{props.Total}</h1>
+          <h1>₦{props.Total}</h1>
         </div>
       )}
       <CheckoutButton

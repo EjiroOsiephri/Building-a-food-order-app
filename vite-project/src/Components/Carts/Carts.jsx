@@ -21,6 +21,10 @@ const Carts = (props) => {
     return total;
   };
 
+  const removeItem = (id) => {
+    const updatedArray = cartCtx.mealCart.filter((item) => item.id !== id);
+    cartCtx.setMealCart(updatedArray);
+  };
   return (
     <CartContex.Provider
       value={{
@@ -37,19 +41,25 @@ const Carts = (props) => {
           ) : (
             <section className={Classes.totalMeals}>
               {cartCtx.mealCart.map((item, index) => {
-                console.log(item.amount * item.Amount);
                 return (
                   <main key={index} className={Classes.mealClassifications}>
                     <h1>{item.Name}</h1>
                     <div className={Classes.main}>
                       <section className={Classes.mealOrders}>
-                        <p>${item.Amount}</p>
+                        <p>₦{item.Amount}</p>
                         <div className={Classes.mealOrderValue}>
                           <p>{item.amount}</p>
                         </div>
                       </section>
                       <aside>
-                        <button className={Classes.button}>-</button>
+                        <button
+                          onClick={() => {
+                            removeItem(item.id);
+                          }}
+                          className={Classes.button}
+                        >
+                          -
+                        </button>
                         <button className={Classes.button}>+</button>
                       </aside>
                     </div>

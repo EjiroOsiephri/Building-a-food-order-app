@@ -13,6 +13,14 @@ const Carts = (props) => {
 
   props.noOfValueInCart(cartCtx.mealCart.length);
 
+  const calculateTotal = () => {
+    let total = 0;
+    cartCtx.mealCart.forEach((item) => {
+      total += item.amount * item.Amount;
+    });
+    return total;
+  };
+
   return (
     <CartContex.Provider
       value={{
@@ -49,9 +57,11 @@ const Carts = (props) => {
                   </main>
                 );
               })}
+              <div className={Classes.totalValue}></div>
             </section>
           )}
           <CheckoutForm
+            Total={calculateTotal()}
             onClick={props.onClick}
             cartHasItems={cartHasItems}
           ></CheckoutForm>

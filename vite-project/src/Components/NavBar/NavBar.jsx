@@ -1,9 +1,22 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import Nav from "../../Sass/NavBar.module.scss";
 import { BsCart4 } from "react-icons/bs";
 import HomeImg from "../../assets/meals.jpg";
 import CartContex from "../../Context/CartContext";
 import { motion } from "framer-motion";
+
+const containerVariants = {
+  hidden: {
+    y: -250,
+  },
+  visible: {
+    y: 0,
+    transition: {
+      duration: 0.5,
+      type: "tween",
+    },
+  },
+};
 
 const NavBar = (props) => {
   const cartCtx = useContext(CartContex);
@@ -16,25 +29,19 @@ const NavBar = (props) => {
     <React.Fragment>
       <nav className={Nav.navbar}>
         <motion.h1
-          initial={{ y: -250 }}
-          animate={{
-            y: 0,
-          }}
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
         >
           Ejiro's Kitchen
         </motion.h1>
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          onClick={props.onShowCart}
-          className={Nav["cart-section"]}
-        >
+        <div onClick={props.onShowCart} className={Nav["cart-section"]}>
           <BsCart4></BsCart4>
           <h4>Your Cart</h4>
-          <div className={Nav.count}>
+          <motion.div className={Nav.count}>
             <p>{numberOfCartItems}</p>
-          </div>
-        </motion.div>
+          </motion.div>
+        </div>
       </nav>
       <div className={Nav.image}>
         <img className={Nav["Curved-img"]} src={HomeImg} alt="" />

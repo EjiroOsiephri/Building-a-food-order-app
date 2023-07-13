@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Input from "./Input";
-import { motion } from "framer-motion";
 
 const MealItemForm = (props) => {
   const [amount, setAmount] = useState(1);

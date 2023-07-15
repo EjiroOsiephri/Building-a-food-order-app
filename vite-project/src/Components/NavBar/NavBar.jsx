@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import Nav from "../../Sass/NavBar.module.scss";
 import { BsCart4 } from "react-icons/bs";
 import HomeImg from "../../assets/meals.jpg";
@@ -7,13 +7,15 @@ import { motion } from "framer-motion";
 
 const containerVariants = {
   hidden: {
-    y: -250,
+    x: -250,
   },
   visible: {
-    y: 0,
+    x: 0,
     transition: {
       duration: 0.5,
-      type: "tween",
+      type: "spring",
+      stiffness: 300,
+      yoyo: Infinity,
     },
   },
 };
@@ -38,7 +40,7 @@ const NavBar = (props) => {
         <div onClick={props.onShowCart} className={Nav["cart-section"]}>
           <BsCart4></BsCart4>
           <h4>Your Cart</h4>
-          <motion.div className={Nav.count}>
+          <motion.div onClick={showAnimate} className={Nav.count}>
             <p>{numberOfCartItems}</p>
           </motion.div>
         </div>

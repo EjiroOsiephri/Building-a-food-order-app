@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import MealItemForm from "./MealItemForm";
 import MainBody from "../../Sass/MainHeader.module.scss";
 import CartContex from "../../Context/CartContext";
+import { useContext } from "react";
 
 function Availablemeal(props) {
   const MealSection = {

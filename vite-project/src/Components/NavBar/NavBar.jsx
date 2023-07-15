@@ -40,7 +40,7 @@ const NavBar = (props) => {
         <div onClick={props.onShowCart} className={Nav["cart-section"]}>
           <BsCart4></BsCart4>
           <h4>Your Cart</h4>
-          <motion.div onClick={showAnimate} className={Nav.count}>
+          <motion.div className={Nav.count}>
             <p>{numberOfCartItems}</p>
           </motion.div>
         </div>

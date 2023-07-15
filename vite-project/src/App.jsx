@@ -4,6 +4,7 @@ import CartContex from "./Context/CartContext";
 import NavBar from "./Components/NavBar/NavBar";
 import Availablemeal from "./Components/MainSection/Availablemeal";
 import Carts from "./Components/Carts/Carts";
+import { motion, AnimatePresence } from "framer-motion";
 
 function App() {
   const [mealCart, setMealCart] = useState([]);
@@ -50,9 +51,15 @@ function App() {
       <NavBar mealValue={mealValue} onShowCart={showCart} />
       <MainHeader />
       <Availablemeal addMeals={addMealsToCart} />
-      {cartIsShown && (
-        <Carts onClick={hideCart} noOfValueInCart={valueInCart} />
-      )}
+      <AnimatePresence>
+        {cartIsShown && (
+          <Carts
+            onClick={hideCart}
+            noOfValueInCart={valueInCart}
+            exit={{ y: -1000 }}
+          ></Carts>
+        )}
+      </AnimatePresence>
     </CartContex.Provider>
   );
 }

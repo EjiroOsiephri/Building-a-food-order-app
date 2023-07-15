@@ -15,6 +15,8 @@ const containerVariants = {
       duration: 0.5,
       type: "spring",
       stiffness: 300,
+      mass: 0.4,
+      damping: 8,
       yoyo: Infinity,
     },
   },

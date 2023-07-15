@@ -3,6 +3,7 @@ import Classes from "../../Sass/Carts.module.scss";
 import CheckoutForm from "../Checkout/CheckoutForm";
 import CartContex from "../../Context/CartContext";
 import { useState, useContext } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 
 const Carts = (props) => {
   const [cart, showCart] = useState(false);
@@ -56,65 +57,69 @@ const Carts = (props) => {
   };
 
   return (
-    <CartContex.Provider
-      value={{
-        closeBtn: showCart,
-      }}
-    >
-      {!cart && (
-        <MealBox>
-          {!cartHasItems ? (
-            <h1 className={Classes.noCartData}>
-              No orders yet? No worries, Click on the add button to place an
-              order.
-            </h1>
-          ) : (
-            <section className={Classes.totalMeals}>
-              {cartCtx.mealCart.map((item, index) => {
-                return (
-                  <main key={index} className={Classes.mealClassifications}>
-                    <h1>{item.Name}</h1>
-                    <div className={Classes.main}>
-                      <section className={Classes.mealOrders}>
-                        <p>₦{item.Amount}</p>
-                        <div className={Classes.mealOrderValue}>
-                          <p>{item.totalValue}</p>
+    <AnimatePresence>
+      <motion.div>
+        <CartContex.Provider
+          value={{
+            closeBtn: showCart,
+          }}
+        >
+          {!cart && (
+            <MealBox>
+              {!cartHasItems ? (
+                <h1 className={Classes.noCartData}>
+                  No orders yet? No worries, Click on the add button to place an
+                  order.
+                </h1>
+              ) : (
+                <section className={Classes.totalMeals}>
+                  {cartCtx.mealCart.map((item, index) => {
+                    return (
+                      <main key={index} className={Classes.mealClassifications}>
+                        <h1>{item.Name}</h1>
+                        <div className={Classes.main}>
+                          <section className={Classes.mealOrders}>
+                            <p>₦{item.Amount}</p>
+                            <div className={Classes.mealOrderValue}>
+                              <p>{item.totalValue}</p>
+                            </div>
+                          </section>
+                          <aside>
+                            <button
+                              onClick={() => {
+                                removeItem(item.id);
+                              }}
+                              className={Classes.button}
+                            >
+                              -
+                            </button>
+                            <button
+                              onClick={() => {
+                                addItem(item.id);
+                              }}
+                              className={Classes.button}
+                            >
+                              +
+                            </button>
+                          </aside>
                         </div>
-                      </section>
-                      <aside>
-                        <button
-                          onClick={() => {
-                            removeItem(item.id);
-                          }}
-                          className={Classes.button}
-                        >
-                          -
-                        </button>
-                        <button
-                          onClick={() => {
-                            addItem(item.id);
-                          }}
-                          className={Classes.button}
-                        >
-                          +
-                        </button>
-                      </aside>
-                    </div>
-                    <hr />
-                  </main>
-                );
-              })}
-              <div className={Classes.totalValue}></div>
-            </section>
+                        <hr />
+                      </main>
+                    );
+                  })}
+                  <div className={Classes.totalValue}></div>
+                </section>
+              )}
+              <CheckoutForm
+                Total={calculateTotal()}
+                onClick={props.onClick}
+                cartHasItems={cartHasItems}
+              ></CheckoutForm>
+            </MealBox>
           )}
-          <CheckoutForm
-            Total={calculateTotal()}
-            onClick={props.onClick}
-            cartHasItems={cartHasItems}
-          ></CheckoutForm>
-        </MealBox>
-      )}
-    </CartContex.Provider>
+        </CartContex.Provider>
+      </motion.div>
+    </AnimatePresence>
   );
 };
 

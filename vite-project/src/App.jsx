@@ -53,11 +53,7 @@ function App() {
       <Availablemeal addMeals={addMealsToCart} />
       <AnimatePresence>
         {cartIsShown && (
-          <Carts
-            onClick={hideCart}
-            noOfValueInCart={valueInCart}
-            exit={{ y: -1000 }}
-          ></Carts>
+          <Carts onClick={hideCart} noOfValueInCart={valueInCart}></Carts>
         )}
       </AnimatePresence>
     </CartContex.Provider>

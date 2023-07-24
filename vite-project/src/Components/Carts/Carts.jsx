@@ -3,6 +3,7 @@ import Classes from "../../Sass/Carts.module.scss";
 import CheckoutForm from "../Checkout/CheckoutForm";
 import CartContex from "../../Context/CartContext";
 import { useState, useContext } from "react";
+import AuthContext from "../../Context/AuthContext";
 
 const Carts = (props) => {
   const [cart, showCart] = useState(false);
@@ -56,9 +57,9 @@ const Carts = (props) => {
   };
 
   return (
-    <CartContex.Provider
+    <AuthContext.Provider
       value={{
-        closeBtn: showCart,
+        setShowOrder: props.setShowOrder,
       }}
     >
       {!cart && (
@@ -114,7 +115,7 @@ const Carts = (props) => {
           ></CheckoutForm>
         </MealBox>
       )}
-    </CartContex.Provider>
+    </AuthContext.Provider>
   );
 };
 

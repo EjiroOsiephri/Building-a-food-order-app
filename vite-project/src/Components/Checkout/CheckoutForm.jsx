@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import CheckoutButton from "./CheckoutButton";
 import Classes from "../../Sass/Checkoutform.module.scss";
+import AuthContext from "../../Context/AuthContext";
 
 const CheckoutForm = (props) => {
+  const orderCtx = useContext(AuthContext);
+
   return (
     <React.Fragment>
       {props.cartHasItems && (
@@ -13,6 +16,7 @@ const CheckoutForm = (props) => {
       )}
       <CheckoutButton
         onClick={props.onClick}
+        setShowOrder={orderCtx.setShowOrder}
         cartHasItems={props.cartHasItems}
       ></CheckoutButton>
     </React.Fragment>

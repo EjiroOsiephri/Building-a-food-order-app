@@ -4,11 +4,14 @@ import CartContex from "./Context/CartContext";
 import NavBar from "./Components/NavBar/NavBar";
 import Availablemeal from "./Components/MainSection/Availablemeal";
 import Carts from "./Components/Carts/Carts";
+import OrderMeals from "./Components/order section/OrderMeals";
 
 function App() {
   const [mealCart, setMealCart] = useState([]);
 
   const [cartIsShown, setCartIsShown] = useState(false);
+
+  const [showOrder, setShowOrder] = useState(false);
 
   function showCart() {
     setCartIsShown(true);
@@ -48,10 +51,20 @@ function App() {
       }}
     >
       <NavBar mealValue={mealValue} onShowCart={showCart} />
-      <MainHeader />
-      <Availablemeal addMeals={addMealsToCart} />
-      {cartIsShown && (
-        <Carts onClick={hideCart} noOfValueInCart={valueInCart} />
+      {showOrder ? (
+        <OrderMeals />
+      ) : (
+        <section>
+          <MainHeader />
+          <Availablemeal addMeals={addMealsToCart} />
+          {cartIsShown && (
+            <Carts
+              onClick={hideCart}
+              setShowOrder={setShowOrder}
+              noOfValueInCart={valueInCart}
+            />
+          )}
+        </section>
       )}
     </CartContex.Provider>
   );

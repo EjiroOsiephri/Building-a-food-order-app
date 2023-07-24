@@ -1,24 +1,29 @@
 import React from "react";
+import Classes from "../../Sass/OrderMeals.module.scss";
 
 const OrderMeals = () => {
+  const formSubmissionHandler = (e) => {
+    e.preventDefault();
+  };
   return (
     <>
-      <form>
-        <div className="control-group">
-          <div className="form-control">
+      <form className={Classes.app} onSubmit={formSubmissionHandler}>
+        <h1>Checkout</h1>
+        <div className={Classes["control-group"]}>
+          <div className={Classes["form-control"]}>
             <label htmlFor="name">First Name</label>
             <input type="text" id="name" />
           </div>
-          <div className="form-control">
+          <div className={Classes["form-control"]}>
             <label htmlFor="name">Last Name</label>
             <input type="text" id="name" />
           </div>
         </div>
-        <div className="form-control">
+        <div className={Classes["form-control"]}>
           <label htmlFor="name">E-Mail Address</label>
           <input type="text" id="name" />
         </div>
-        <div className="form-actions">
+        <div className={Classes["form-actions"]}>
           <button>Submit</button>
         </div>
       </form>

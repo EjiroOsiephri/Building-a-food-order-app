@@ -11,6 +11,7 @@ const containerVariants = {
   },
   visible: {
     x: 0,
+    color: "white",
     transition: {
       duration: 0.5,
       type: "spring",
@@ -47,9 +48,11 @@ const NavBar = (props) => {
           </motion.div>
         </div>
       </nav>
-      <div className={Nav.image}>
-        <img className={Nav["Curved-img"]} src={HomeImg} alt="" />
-      </div>
+      {!props.showImg && (
+        <div className={Nav.image}>
+          <img className={Nav["Curved-img"]} src={HomeImg} alt="" />
+        </div>
+      )}
     </React.Fragment>
   );
 };

@@ -50,7 +50,7 @@ function App() {
         setMealCart: setMealCart,
       }}
     >
-      <NavBar mealValue={mealValue} onShowCart={showCart} />
+      <NavBar showImg={showOrder} mealValue={mealValue} onShowCart={showCart} />
       {showOrder ? (
         <OrderMeals />
       ) : (

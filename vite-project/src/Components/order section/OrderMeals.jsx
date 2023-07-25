@@ -1,5 +1,5 @@
 import React, { useReducer } from "react";
-import Classes from "../../Sass/OrderMeals.module.scss";
+import "../../Sass/OrderMeals.scss";
 
 const SET_FIRST_NAME = "SET_FIRST_NAME";
 const SET_FIRST_NAME_TOUCHED = "SET_FIRST_NAME_TOUCHED";
@@ -188,6 +188,19 @@ const OrderMeals = () => {
     enteredLastNameIsValid &&
     enteredZipCodeIsValid;
 
+  const enteredFirstNameIsInValid =
+    !enteredFirstNameIsValid && enteredFirstNameIsTouched;
+  const enteredLastNameIsInValid =
+    !enteredLastNameIsValid && enteredLastNameIsTouched;
+  const enteredEmailIsInValid = !enteredEmailIsValid && enteredEmailIsTouched;
+  const enteredZipCodeIsInValid =
+    !enteredZipCodeIsValid && enteredZipCodeIsTouched;
+  const enteredCountryIsInValid =
+    !enteredCountryIsValid && enteredCountryIsTouched;
+  const enteredCityIsInValid = !enteredCityIsValid && enteredCityIsTouched;
+  const enteredAddressIsInValid =
+    !enteredAddressIsValid && enteredAddressIsTouched;
+
   if (enteredValidity) {
     formIsValid = true;
   }
@@ -268,12 +281,35 @@ const OrderMeals = () => {
     console.log(enteredZipCode);
     dispatchFn({ type: RESET_FORM });
   };
+
+  const firstNameClass = enteredFirstNameIsInValid
+    ? "form-control invalid"
+    : "form-control";
+  const lastNameClass = enteredLastNameIsInValid
+    ? "form-control invalid"
+    : "form-control";
+  const EmailClass = enteredEmailIsInValid
+    ? "form-control invalid"
+    : "form-control";
+  const ZipCodeClass = enteredZipCodeIsInValid
+    ? "form-control invalid"
+    : "form-control";
+  const AddressClass = enteredAddressIsInValid
+    ? "form-control invalid"
+    : "form-control";
+  const CityClass = enteredCityIsInValid
+    ? "form-control invalid"
+    : "form-control";
+  const CountryClass = enteredCountryIsInValid
+    ? "form-control invalid"
+    : "form-control";
+
   return (
     <>
-      <form className={Classes.app} onSubmit={formSubmissionHandler}>
+      <form className={"app"} onSubmit={formSubmissionHandler}>
         <h1>Checkout</h1>
-        <div className={Classes["control-group"]}>
-          <div className={Classes["form-control"]}>
+        <div className={["control-group"]}>
+          <div className={firstNameClass}>
             <h2>BILLING DETAILS</h2>
             <label htmlFor="name">First Name</label>
             <input
@@ -284,7 +320,7 @@ const OrderMeals = () => {
               value={enteredFirstName}
             />
           </div>
-          <div className={Classes["form-control"]}>
+          <div className={lastNameClass}>
             <label htmlFor="name">Last Name</label>
             <input
               onBlur={lastNameIsBlur}
@@ -295,7 +331,7 @@ const OrderMeals = () => {
             />
           </div>
 
-          <div className={Classes["form-control"]}>
+          <div className={EmailClass}>
             <label htmlFor="name">E-Mail Address</label>
             <input
               onBlur={emailIsBlur}
@@ -305,7 +341,7 @@ const OrderMeals = () => {
               id="name"
             />
           </div>
-          <div className={Classes["form-control"]}>
+          <div className={AddressClass}>
             <h2>Shipping info</h2>
             <label htmlFor="name">Your Address</label>
             <input
@@ -316,7 +352,7 @@ const OrderMeals = () => {
               id="name"
             />
           </div>
-          <div className={Classes["form-control"]}>
+          <div className={ZipCodeClass}>
             <label htmlFor="name">Zip code</label>
             <input
               type="number"
@@ -326,7 +362,7 @@ const OrderMeals = () => {
               id="name"
             />
           </div>
-          <div className={Classes["form-control"]}>
+          <div className={CityClass}>
             <label htmlFor="name">City</label>
             <input
               onBlur={cityIsBlur}
@@ -336,7 +372,7 @@ const OrderMeals = () => {
               id="name"
             />
           </div>
-          <div className={Classes["form-control"]}>
+          <div className={CountryClass}>
             <label htmlFor="name">Country</label>
             <input
               onBlur={countryIsBlur}
@@ -347,8 +383,8 @@ const OrderMeals = () => {
             />
           </div>
         </div>
-        <section className={Classes.app}>
-          <div className={Classes["form-actions"]}>
+        <section className={"app"}>
+          <div className={["form-actions"]}>
             <button disabled={!formIsValid}>Submit</button>
           </div>
         </section>

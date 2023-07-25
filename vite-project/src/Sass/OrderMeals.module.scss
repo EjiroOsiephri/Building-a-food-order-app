@@ -23,12 +23,20 @@ body {
 }
 
 .app h1 {
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
   font-weight: 400;
 }
 
 .form-control {
-  margin-bottom: 1rem;
+  margin-bottom: 15px;
+}
+
+.form-control h2 {
+  font-weight: 500;
+  font-size: 18px;
+  text-transform: uppercase;
+  color: rgb(125, 41, 41);
+  margin-bottom: 1.5rem;
 }
 
 .form-control input,

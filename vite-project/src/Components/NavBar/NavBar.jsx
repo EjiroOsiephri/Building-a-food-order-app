@@ -11,7 +11,7 @@ const containerVariants = {
   },
   visible: {
     x: 0,
-    color: "white",
+    color: "rgb(255, 255, 255)",
     transition: {
       duration: 0.5,
       type: "spring",

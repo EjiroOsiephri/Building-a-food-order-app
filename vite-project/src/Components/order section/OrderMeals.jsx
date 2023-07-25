@@ -116,7 +116,7 @@ const formReducer = (state, action) => {
       enteredFirstNameIsTouched: false,
       enteredLastName: "",
       enteredLastNameIsTouched: false,
-      enteredEmailName: "",
+      enteredEmail: "",
       enteredEmailIsTouched: false,
       enteredZipCode: "",
       enteredZipCodeIsTouched: false,
@@ -138,7 +138,7 @@ const OrderMeals = () => {
     enteredFirstNameIsTouched: false,
     enteredLastName: "",
     enteredLastNameIsTouched: false,
-    enteredEmailName: "",
+    enteredEmail: "",
     enteredEmailIsTouched: false,
     enteredZipCode: "",
     enteredZipCodeIsTouched: false,
@@ -166,6 +166,31 @@ const OrderMeals = () => {
     enteredAddress,
     enteredAddressIsTouched,
   } = formState;
+
+  let formIsValid = false;
+
+  const enteredFirstNameIsValid = enteredFirstName.trim() !== "";
+  const enteredLastNameIsValid = enteredLastName.trim() !== "";
+  const enteredEmailIsValid =
+    enteredEmail.trim() !== "" && enteredEmail.includes("@");
+  const enteredCountryIsValid = enteredCountry.trim() !== "";
+  const enteredZipCodeIsValid = enteredZipCode.trim() !== "";
+  const enteredCityIsValid = enteredCity.trim() !== "";
+  const enteredAddressIsValid = enteredAddress.trim() !== "";
+
+  const enteredValidity =
+    enteredEmailIsValid &&
+    enteredFirstNameIsValid &&
+    enteredAddressIsValid &&
+    enteredCountryIsValid &&
+    enteredCityIsValid &&
+    enteredCityIsValid &&
+    enteredLastNameIsValid &&
+    enteredZipCodeIsValid;
+
+  if (enteredValidity) {
+    formIsValid = true;
+  }
 
   const firstNameChangeHandler = (e) => {
     dispatchFn({ type: SET_FIRST_NAME, value: e.target.value });
@@ -324,7 +349,7 @@ const OrderMeals = () => {
         </div>
         <section className={Classes.app}>
           <div className={Classes["form-actions"]}>
-            <button>Submit</button>
+            <button disabled={!formIsValid}>Submit</button>
           </div>
         </section>
       </form>

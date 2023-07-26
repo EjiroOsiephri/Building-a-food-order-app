@@ -9,7 +9,6 @@ import Burger from "../../assets/burger.jpg";
 const OrderMealsSummary = () => {
   const ctx = useContext(CartContex);
   const arraySummary = [];
-  let imgSource;
 
   ctx.mealCart.map((item) => {
     return arraySummary.push({
@@ -17,10 +16,24 @@ const OrderMealsSummary = () => {
       totalValue: item.totalValue,
       id: item.id,
       Amount: item.Amount,
+      imgSource: getImgSource(item.id),
     });
   });
 
-  console.log(arraySummary);
+  function getImgSource(id) {
+    if (id === "m3") {
+      return Sushi;
+    }
+    if (id === "m1") {
+      return Jollof;
+    }
+    if (id === "m2") {
+      return Eba;
+    }
+    if (id === "m4") {
+      return Burger;
+    }
+  }
 
   return (
     <div className={Classes.allOrders}>
@@ -30,7 +43,7 @@ const OrderMealsSummary = () => {
           <section key={item.id}>
             <div className={Classes.imgDiv}>
               <div className={Classes.arraySummaryInfo}>
-                <img src={Burger} alt="" />
+                <img src={item?.imgSource} alt="" />
                 <h1>{item.Name}</h1>
               </div>
               <h4>x{item.totalValue}</h4>

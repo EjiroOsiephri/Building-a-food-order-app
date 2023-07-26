@@ -1,0 +1,27 @@
+.allOrders > h1 {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.imgDiv {
+  display: flex;
+  justify-content: space-between;
+}
+.imgDiv h4 {
+  color: gray;
+}
+.arraySummaryInfo {
+  display: flex;
+}
+.arraySummaryInfo img {
+  width: 50px;
+  height: 50px;
+  max-width: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+@media screen and (max-width: 666px) {
+  .arraySummaryInfo {
+    flex-direction: column;
+  }
+}

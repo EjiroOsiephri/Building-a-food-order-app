@@ -1,9 +1,15 @@
 import React, { useContext } from "react";
 import CartContex from "../../Context/CartContext";
+import Classes from "../../Sass/OrderMealsItem.module.scss";
+import Eba from "../../assets/eba.jpg";
+import Jollof from "../../assets/jolllof.jpg";
+import Sushi from "../../assets/sushi-rolls.jpg";
+import Burger from "../../assets/burger.jpg";
 
 const OrderMealsSummary = () => {
   const ctx = useContext(CartContex);
   const arraySummary = [];
+  let imgSource;
 
   ctx.mealCart.map((item) => {
     return arraySummary.push({
@@ -14,15 +20,19 @@ const OrderMealsSummary = () => {
     });
   });
 
+  console.log(arraySummary);
+
   return (
-    <div>
+    <div className={Classes.allOrders}>
       <h1>Summary</h1>
       {arraySummary.map((item) => {
         return (
           <section key={item.id}>
-            <div className="amountDiv">
-              <h1>{item.Name}</h1>
-              <h3>₦{item.Amount}</h3>
+            <div className={Classes.imgDiv}>
+              <div className={Classes.arraySummaryInfo}>
+                <img src={Burger} alt="" />
+                <h1>{item.Name}</h1>
+              </div>
               <h4>{item.totalValue}</h4>
             </div>
             <aside>

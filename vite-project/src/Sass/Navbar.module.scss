@@ -9,6 +9,7 @@ body {
   scroll-behavior: smooth;
 }
 .navbar {
+  position: fixed;
   z-index: 40;
   display: flex;
   justify-content: space-around;

@@ -383,11 +383,10 @@ const OrderMeals = () => {
             />
           </div>
         </div>
-        <section className={"app"}>
-          <div className={["form-actions"]}>
-            <button disabled={!formIsValid}>Submit</button>
-          </div>
-        </section>
+
+        <div className={["form-actions"]}>
+          <button disabled={!formIsValid}>Submit</button>
+        </div>
       </form>
     </>
   );

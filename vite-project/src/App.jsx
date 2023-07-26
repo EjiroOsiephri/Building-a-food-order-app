@@ -5,6 +5,7 @@ import NavBar from "./Components/NavBar/NavBar";
 import Availablemeal from "./Components/MainSection/Availablemeal";
 import Carts from "./Components/Carts/Carts";
 import OrderMeals from "./Components/order section/OrderMeals";
+import axios from "axios";
 
 function App() {
   const [mealCart, setMealCart] = useState([]);
@@ -43,6 +44,15 @@ function App() {
     }
   };
 
+  const sendPostRequest = async (meals) => {
+    const response = await axios.post(
+      "https://ejiro-s-kitchen-default-rtdb.firebaseio.com/Meals.json",
+      meals
+    );
+    console.log(response.data);
+    console.log(meals);
+  };
+
   return (
     <CartContex.Provider
       value={{
@@ -51,7 +61,7 @@ function App() {
       }}
     >
       {showOrder ? (
-        <OrderMeals />
+        <OrderMeals sendPostRequest={sendPostRequest} />
       ) : (
         <section>
           <NavBar

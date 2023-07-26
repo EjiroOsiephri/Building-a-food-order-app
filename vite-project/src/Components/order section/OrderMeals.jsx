@@ -132,7 +132,7 @@ const formReducer = (state, action) => {
   return state;
 };
 
-const OrderMeals = () => {
+const OrderMeals = (props) => {
   const [formState, dispatchFn] = useReducer(formReducer, {
     enteredFirstName: "",
     enteredFirstNameIsTouched: false,
@@ -279,6 +279,9 @@ const OrderMeals = () => {
     console.log(enteredEmail);
     console.log(enteredLastName);
     console.log(enteredZipCode);
+
+    props.sendPostRequest(formState);
+
     dispatchFn({ type: RESET_FORM });
   };
 

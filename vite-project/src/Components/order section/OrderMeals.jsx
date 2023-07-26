@@ -306,41 +306,51 @@ const OrderMeals = () => {
 
   return (
     <>
+      <button className="button goBack">GO BACK</button>
       <form className={"app"} onSubmit={formSubmissionHandler}>
-        <h1>Checkout</h1>
-        <div className={["control-group"]}>
-          <div className={firstNameClass}>
-            <h2>BILLING DETAILS</h2>
-            <label htmlFor="name">First Name</label>
-            <input
-              type="text"
-              onBlur={firstNameIsBlur}
-              onChange={firstNameChangeHandler}
-              id="name"
-              value={enteredFirstName}
-            />
-          </div>
-          <div className={lastNameClass}>
-            <label htmlFor="name">Last Name</label>
-            <input
-              onBlur={lastNameIsBlur}
-              onChange={lastNameChangeHandler}
-              value={enteredLastName}
-              type="text"
-              id="name"
-            />
-          </div>
+        <h1>CHECKOUT</h1>
 
-          <div className={EmailClass}>
-            <label htmlFor="name">E-Mail Address</label>
-            <input
-              onBlur={emailIsBlur}
-              onChange={emailChangeHandler}
-              value={enteredEmail}
-              type="text"
-              id="name"
-            />
-          </div>
+        {/* billing details */}
+        <div className="control-group">
+          <section className="Billing-details">
+            <div className={firstNameClass}>
+              <h2>BILLING DETAILS</h2>
+              <label htmlFor="name">First Name</label>
+              <input
+                type="text"
+                onBlur={firstNameIsBlur}
+                onChange={firstNameChangeHandler}
+                id="name"
+                value={enteredFirstName}
+              />
+            </div>
+            <div className={lastNameClass}>
+              <label htmlFor="name">Last Name</label>
+              <input
+                onBlur={lastNameIsBlur}
+                onChange={lastNameChangeHandler}
+                value={enteredLastName}
+                className="lastName-label"
+                type="text"
+                id="name"
+              />
+            </div>
+
+            <div className={EmailClass}>
+              <label htmlFor="name">E-Mail Address</label>
+              <input
+                onBlur={emailIsBlur}
+                onChange={emailChangeHandler}
+                value={enteredEmail}
+                type="text"
+                id="name"
+              />
+            </div>
+          </section>
+        </div>
+        {/* Shipping DETAILS */}
+
+        <section className="shippingDetails">
           <div className={AddressClass}>
             <h2>Shipping info</h2>
             <label htmlFor="name">Your Address</label>
@@ -382,11 +392,17 @@ const OrderMeals = () => {
               id="name"
             />
           </div>
-        </div>
+        </section>
 
-        <div className={["form-actions"]}>
-          <button disabled={!formIsValid}>Submit</button>
-        </div>
+        {/* Checkout button */}
+
+        <section className="app">
+          <div className={["form-actions"]}>
+            <button className="button" disabled={!formIsValid}>
+              Submit
+            </button>
+          </div>
+        </section>
       </form>
     </>
   );

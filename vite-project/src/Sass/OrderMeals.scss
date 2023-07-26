@@ -15,7 +15,7 @@ body {
 
 .app {
   width: 90%;
-  padding: 1rem;
+  padding: 2rem;
   border-radius: 12px;
   background-color: white;
   margin: 3rem auto;
@@ -23,12 +23,13 @@ body {
 }
 
 .app h1 {
+  margin-top: 2rem;
   margin-bottom: 2rem;
   font-weight: 400;
 }
 
 .form-control {
-  margin-bottom: 15px;
+  margin-bottom: 25px;
 }
 
 button:disabled,
@@ -62,10 +63,10 @@ button:disabled:active {
 .form-control input,
 .form-control select {
   font: inherit;
-  padding: 0.5rem;
+  padding: 0.8rem;
   border-radius: 4px;
   border: 1px solid #ccc;
-  width: 20rem;
+  width: 90%;
   max-width: 100%;
 }
 
@@ -86,7 +87,7 @@ button:disabled:active {
   flex: 1;
 }
 
-button {
+.button {
   font: inherit;
   background-color: rgb(125, 41, 41);
   color: white;
@@ -122,4 +123,17 @@ button:active {
 
 .error-text {
   color: #b40e0e;
+}
+.Billing-details {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 1em;
+}
+.lastName-label {
+  margin-top: 3.4em;
+}
+.goBack {
+  margin-left: 1.5rem;
+  margin-top: 1rem;
 }

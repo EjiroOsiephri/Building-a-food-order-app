@@ -335,12 +335,13 @@ const OrderMeals = (props) => {
                 />
               </div>
               <div className={lastNameClass}>
-                <label htmlFor="name">Last Name</label>
+                <label className="lastName-label" htmlFor="name">
+                  Last Name
+                </label>
                 <input
                   onBlur={lastNameIsBlur}
                   onChange={lastNameChangeHandler}
                   value={enteredLastName}
-                  className="lastName-label"
                   type="text"
                   id="name"
                 />
@@ -373,7 +374,9 @@ const OrderMeals = (props) => {
               />
             </div>
             <div className={ZipCodeClass}>
-              <label htmlFor="name">Zip code</label>
+              <label className="zip-label" htmlFor="name">
+                Zip code
+              </label>
               <input
                 type="number"
                 onBlur={zipIsBlur}
@@ -413,7 +416,7 @@ const OrderMeals = (props) => {
           <section className="app">
             <div className={["form-actions"]}>
               <button className="button" disabled={!formIsValid}>
-                Submit
+                CHECKOUT AND PAY
               </button>
             </div>
           </section>

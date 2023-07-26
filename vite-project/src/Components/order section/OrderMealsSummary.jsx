@@ -28,7 +28,7 @@ const OrderMealsSummary = () => {
             <aside>
               <div className="total">
                 <h2>Total</h2>
-                <h3>{item.totalValue}</h3>
+                <h3>{item.Amount}</h3>
               </div>
               <div className="shipping">
                 <h2>Shipping</h2>
@@ -36,7 +36,7 @@ const OrderMealsSummary = () => {
               </div>
               <div className="grandTotal">
                 <h2>GrandTotal</h2>
-                <h3>{item.totalValue + 3000}</h3>
+                <h3>{item.Amount + 3000}</h3>
               </div>
             </aside>
           </section>

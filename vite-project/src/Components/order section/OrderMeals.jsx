@@ -1,5 +1,6 @@
 import React, { useReducer } from "react";
 import "../../Sass/OrderMeals.scss";
+import OrderMealsSummary from "./OrderMealsSummary";
 
 const SET_FIRST_NAME = "SET_FIRST_NAME";
 const SET_FIRST_NAME_TOUCHED = "SET_FIRST_NAME_TOUCHED";
@@ -398,6 +399,10 @@ const OrderMeals = (props) => {
         </section>
 
         {/* Checkout button */}
+
+        <section>
+          <OrderMealsSummary />
+        </section>
 
         <section className="app">
           <div className={["form-actions"]}>

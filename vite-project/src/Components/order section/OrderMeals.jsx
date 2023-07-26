@@ -1,6 +1,7 @@
-import React, { useReducer } from "react";
+import React, { useReducer, useState } from "react";
 import "../../Sass/OrderMeals.scss";
 import OrderMealsSummary from "./OrderMealsSummary";
+import App from "../../App";
 
 const SET_FIRST_NAME = "SET_FIRST_NAME";
 const SET_FIRST_NAME_TOUCHED = "SET_FIRST_NAME_TOUCHED";
@@ -273,14 +274,6 @@ const OrderMeals = (props) => {
     dispatchFn({ type: SET_COUNTRY_TOUCHED });
     dispatchFn({ type: SET_ADRESS_TOUCHED });
 
-    console.log(enteredFirstName);
-    console.log(enteredAddress);
-    console.log(enteredCity);
-    console.log(enteredCountry);
-    console.log(enteredEmail);
-    console.log(enteredLastName);
-    console.log(enteredZipCode);
-
     props.sendPostRequest(formState);
 
     dispatchFn({ type: RESET_FORM });
@@ -308,110 +301,124 @@ const OrderMeals = (props) => {
     ? "form-control invalid"
     : "form-control";
 
+  const [goBackState, setGoBackState] = useState(false);
+
+  function goBack() {
+    setGoBackState(true);
+  }
+
   return (
     <>
-      <button className="button goBack">GO BACK</button>
-      <form className={"app"} onSubmit={formSubmissionHandler}>
-        <h1>CHECKOUT</h1>
+      {!goBackState && (
+        <button onClick={goBack} className="button goBack">
+          GO BACK
+        </button>
+      )}
+      {goBackState ? (
+        <App />
+      ) : (
+        <form className={"app"} onSubmit={formSubmissionHandler}>
+          <h1>CHECKOUT</h1>
 
-        {/* billing details */}
-        <div className="control-group">
-          <section className="Billing-details">
-            <div className={firstNameClass}>
-              <h2>BILLING DETAILS</h2>
-              <label htmlFor="name">First Name</label>
+          {/* billing details */}
+          <div className="control-group">
+            <section className="Billing-details">
+              <div className={firstNameClass}>
+                <h2>BILLING DETAILS</h2>
+                <label htmlFor="name">First Name</label>
+                <input
+                  type="text"
+                  onBlur={firstNameIsBlur}
+                  onChange={firstNameChangeHandler}
+                  id="name"
+                  value={enteredFirstName}
+                />
+              </div>
+              <div className={lastNameClass}>
+                <label htmlFor="name">Last Name</label>
+                <input
+                  onBlur={lastNameIsBlur}
+                  onChange={lastNameChangeHandler}
+                  value={enteredLastName}
+                  className="lastName-label"
+                  type="text"
+                  id="name"
+                />
+              </div>
+
+              <div className={EmailClass}>
+                <label htmlFor="name">E-Mail Address</label>
+                <input
+                  onBlur={emailIsBlur}
+                  onChange={emailChangeHandler}
+                  value={enteredEmail}
+                  type="text"
+                  id="name"
+                />
+              </div>
+            </section>
+          </div>
+          {/* Shipping DETAILS */}
+
+          <section className="shippingDetails">
+            <div className={AddressClass}>
+              <h2>Shipping info</h2>
+              <label htmlFor="name">Your Address</label>
               <input
+                onBlur={adressIsBlur}
+                onChange={adressChangeHandler}
+                value={enteredAddress}
                 type="text"
-                onBlur={firstNameIsBlur}
-                onChange={firstNameChangeHandler}
                 id="name"
-                value={enteredFirstName}
               />
             </div>
-            <div className={lastNameClass}>
-              <label htmlFor="name">Last Name</label>
+            <div className={ZipCodeClass}>
+              <label htmlFor="name">Zip code</label>
               <input
-                onBlur={lastNameIsBlur}
-                onChange={lastNameChangeHandler}
-                value={enteredLastName}
-                className="lastName-label"
+                type="number"
+                onBlur={zipIsBlur}
+                value={enteredZipCode}
+                onChange={zipChangeHandler}
+                id="name"
+              />
+            </div>
+            <div className={CityClass}>
+              <label htmlFor="name">City</label>
+              <input
+                onBlur={cityIsBlur}
+                onChange={cityChangeHandler}
+                value={enteredCity}
                 type="text"
                 id="name"
               />
             </div>
-
-            <div className={EmailClass}>
-              <label htmlFor="name">E-Mail Address</label>
+            <div className={CountryClass}>
+              <label htmlFor="name">Country</label>
               <input
-                onBlur={emailIsBlur}
-                onChange={emailChangeHandler}
-                value={enteredEmail}
+                onBlur={countryIsBlur}
+                onChange={countryChangeHandler}
+                value={enteredCountry}
                 type="text"
                 id="name"
               />
             </div>
           </section>
-        </div>
-        {/* Shipping DETAILS */}
 
-        <section className="shippingDetails">
-          <div className={AddressClass}>
-            <h2>Shipping info</h2>
-            <label htmlFor="name">Your Address</label>
-            <input
-              onBlur={adressIsBlur}
-              onChange={adressChangeHandler}
-              value={enteredAddress}
-              type="text"
-              id="name"
-            />
-          </div>
-          <div className={ZipCodeClass}>
-            <label htmlFor="name">Zip code</label>
-            <input
-              type="number"
-              onBlur={zipIsBlur}
-              value={enteredZipCode}
-              onChange={zipChangeHandler}
-              id="name"
-            />
-          </div>
-          <div className={CityClass}>
-            <label htmlFor="name">City</label>
-            <input
-              onBlur={cityIsBlur}
-              onChange={cityChangeHandler}
-              value={enteredCity}
-              type="text"
-              id="name"
-            />
-          </div>
-          <div className={CountryClass}>
-            <label htmlFor="name">Country</label>
-            <input
-              onBlur={countryIsBlur}
-              onChange={countryChangeHandler}
-              value={enteredCountry}
-              type="text"
-              id="name"
-            />
-          </div>
-        </section>
+          {/* Checkout button */}
 
-        {/* Checkout button */}
+          <section>
+            <OrderMealsSummary />
+          </section>
 
-        <section>
-          <OrderMealsSummary />
-        </section>
-
-        <section className="app">
-          <div className={["form-actions"]}>
-            <button className="button" disabled={!formIsValid}>
-              Submit
-            </button>
-          </div>
-        </section>
-      </form>
+          <section className="app">
+            <div className={["form-actions"]}>
+              <button className="button" disabled={!formIsValid}>
+                Submit
+              </button>
+            </div>
+          </section>
+        </form>
+      )}
     </>
   );
 };

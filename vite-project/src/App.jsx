@@ -60,15 +60,11 @@ function App() {
         setMealCart: setMealCart,
       }}
     >
+      <NavBar showImg={showOrder} mealValue={mealValue} onShowCart={showCart} />
       {showOrder ? (
         <OrderMeals sendPostRequest={sendPostRequest} />
       ) : (
         <section>
-          <NavBar
-            showImg={showOrder}
-            mealValue={mealValue}
-            onShowCart={showCart}
-          />
           <MainHeader />
           <Availablemeal addMeals={addMealsToCart} />
           {cartIsShown && (

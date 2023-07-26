@@ -2,6 +2,19 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1px;
+  margin-top: 3.7em;
+}
+.allOrders h2 {
+  text-transform: uppercase;
+  font-weight: 400;
+  letter-spacing: 1px;
+  color: rgb(125, 41, 41);
+  font-size: 20px;
+}
+.allOrders h3 {
+  font-weight: 400;
+  letter-spacing: 1px;
+  font-weight: 600;
 }
 .imgDiv {
   display: flex;
@@ -12,6 +25,8 @@
 }
 .arraySummaryInfo {
   display: flex;
+  align-items: center;
+  margin-bottom: 1em;
 }
 .arraySummaryInfo img {
   width: 50px;
@@ -19,9 +34,28 @@
   max-width: 100%;
   object-fit: cover;
   border-radius: 10px;
+  margin-right: 1em;
+}
+.total {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+.shipping {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+.grandTotal {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
 }
 @media screen and (max-width: 666px) {
   .arraySummaryInfo {
     flex-direction: column;
+  }
+  .allOrders h2 {
+    font-size: 15px;
   }
 }

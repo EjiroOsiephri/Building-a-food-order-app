@@ -33,20 +33,20 @@ const OrderMealsSummary = () => {
                 <img src={Burger} alt="" />
                 <h1>{item.Name}</h1>
               </div>
-              <h4>{item.totalValue}</h4>
+              <h4>x{item.totalValue}</h4>
             </div>
             <aside>
-              <div className="total">
+              <div className={Classes.total}>
                 <h2>Total</h2>
-                <h3>{item.Amount}</h3>
+                <h3>₦{item.Amount}</h3>
               </div>
-              <div className="shipping">
-                <h2>Shipping</h2>
+              <div className={Classes.shipping}>
+                <h2>Shipping $ VAT</h2>
                 <h3>₦3000</h3>
               </div>
-              <div className="grandTotal">
+              <div className={Classes.grandTotal}>
                 <h2>GrandTotal</h2>
-                <h3>{item.Amount + 3000}</h3>
+                <h3>₦{item.Amount + 3000}</h3>
               </div>
             </aside>
           </section>

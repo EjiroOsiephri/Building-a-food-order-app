@@ -6,6 +6,8 @@ import Availablemeal from "./Components/MainSection/Availablemeal";
 import Carts from "./Components/Carts/Carts";
 import OrderMeals from "./Components/order section/OrderMeals";
 import axios from "axios";
+import HomeNavBar from "./pages/HomePage";
+import { Route, Routes } from "react-router-dom";
 
 function App() {
   const [mealCart, setMealCart] = useState([]);
@@ -60,22 +62,42 @@ function App() {
         setMealCart: setMealCart,
       }}
     >
-      <NavBar showImg={showOrder} mealValue={mealValue} onShowCart={showCart} />
-      {showOrder ? (
-        <OrderMeals sendPostRequest={sendPostRequest} />
-      ) : (
-        <section>
-          <MainHeader />
-          <Availablemeal addMeals={addMealsToCart} />
-          {cartIsShown && (
-            <Carts
-              onClick={hideCart}
-              setShowOrder={setShowOrder}
-              noOfValueInCart={valueInCart}
+      <Routes>
+        <Route path="/" element={<HomeNavBar />} />
+        <Route
+          path="/navbar"
+          element={
+            <NavBar
+              showImg={showOrder}
+              mealValue={mealValue}
+              onShowCart={showCart}
             />
-          )}
-        </section>
-      )}
+          }
+        />
+        {showOrder ? (
+          <Route
+            path="/ordermeals"
+            element={<OrderMeals sendPostRequest={sendPostRequest} />}
+          />
+        ) : (
+          <Route
+            path="/mainheader"
+            element={
+              <section>
+                <MainHeader />
+                <Availablemeal addMeals={addMealsToCart} />
+                {cartIsShown && (
+                  <Carts
+                    onClick={hideCart}
+                    setShowOrder={setShowOrder}
+                    noOfValueInCart={valueInCart}
+                  />
+                )}
+              </section>
+            }
+          />
+        )}
+      </Routes>
     </CartContex.Provider>
   );
 }

@@ -1,0 +1,14 @@
+.navbar {
+  position: fixed;
+  z-index: 40;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: rgb(125, 41, 41);
+  height: 4rem;
+  width: 100%;
+}
+.navbar h1 {
+  font-size: 1.7em;
+  color: white;
+}

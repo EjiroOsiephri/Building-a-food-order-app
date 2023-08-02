@@ -64,16 +64,6 @@ function App() {
     >
       <Routes>
         <Route path="/" element={<HomeNavBar />} />
-        <Route
-          path="/navbar"
-          element={
-            <NavBar
-              showImg={showOrder}
-              mealValue={mealValue}
-              onShowCart={showCart}
-            />
-          }
-        />
         {showOrder ? (
           <Route
             path="/ordermeals"
@@ -81,9 +71,14 @@ function App() {
           />
         ) : (
           <Route
-            path="/mainheader"
+            path="/all"
             element={
               <section>
+                <NavBar
+                  showImg={showOrder}
+                  mealValue={mealValue}
+                  onShowCart={showCart}
+                />
                 <MainHeader />
                 <Availablemeal addMeals={addMealsToCart} />
                 {cartIsShown && (
@@ -95,7 +90,7 @@ function App() {
                 )}
               </section>
             }
-          />
+          ></Route>
         )}
       </Routes>
     </CartContex.Provider>

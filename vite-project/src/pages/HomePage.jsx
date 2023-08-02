@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 import Classes from "../Sass/HomeNav.module.scss";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import BgImg from "../assets/downloadEjiro.png";
 import Restaurant from "../assets/restaurant.jpg";
 import { Cursor, useTypewriter } from "react-simple-typewriter";
@@ -12,6 +12,13 @@ const HomeNavBar = () => {
     deleteSpeed: 130,
     typeSpeed: 100,
   });
+
+  const navigate = useNavigate();
+
+  const navigatePage = () => {
+    navigate("/all");
+  };
+
   return (
     <Fragment>
       <nav className={Classes.navbar}>
@@ -33,7 +40,10 @@ const HomeNavBar = () => {
       <div className={Classes["Main-text-div"]}>
         <img src={Restaurant} alt="" />
         <div className={Classes["text-section"]}>
-          <h1>{text}</h1>
+          <h1>
+            {text}
+            <Cursor />
+          </h1>
         </div>
         <div className={Classes["brief-setion"]}>
           <h1>Ejiro's kitchen has you covered</h1>
@@ -42,7 +52,7 @@ const HomeNavBar = () => {
             to chop life? Try us , and let’s deliver happiness to your doorstep
             in minutes.
           </h3>
-          <button>Get Started</button>
+          <button onClick={navigatePage}>Get Started</button>
         </div>
       </div>
     </Fragment>

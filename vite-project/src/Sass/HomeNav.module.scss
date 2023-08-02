@@ -59,7 +59,7 @@ section > img {
 }
 .text-section {
   position: absolute;
-  top: 50%;
+  top: 30%;
   left: 50%;
   transform: translate(-50%, -50%);
   margin-bottom: 3em;
@@ -71,10 +71,35 @@ section > img {
 .brief-setion {
   position: absolute;
   text-align: center;
-  top: 50%;
+  top: 20%;
   left: 50%;
   transform: translate(-50%, 70%);
 }
+.brief-setion h3 {
+  letter-spacing: 1.1px;
+  line-height: 29px;
+  color: rgb(125, 41, 41);
+  font-weight: 900;
+}
+.brief-setion h1 {
+  white-space: nowrap;
+  letter-spacing: 1.1px;
+  color: white;
+  margin-bottom: 1em;
+}
+.brief-setion > button {
+  width: 80%;
+  height: 50px;
+  border-radius: 10px;
+  margin-top: 3em;
+  font-size: 18px;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background-color: rgb(125, 41, 41);
+  border: none;
+}
+
 @media screen and (max-width: 976px) {
   .navbar h1 {
     font-size: 0.8em;
@@ -95,11 +120,13 @@ section > img {
   }
   .brief-setion {
     transform: translate(-50%, -40%);
+    top: 50%;
   }
   .brief-setion h1 {
     font-size: 17px;
     white-space: nowrap;
     letter-spacing: 1.1px;
+    margin-top: 4em;
     margin-bottom: 2em;
     color: white;
   }

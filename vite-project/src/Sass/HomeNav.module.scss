@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap");
+
 .navbar {
   position: fixed;
   z-index: 40;
@@ -8,7 +10,61 @@
   height: 4rem;
   width: 100%;
 }
+.navbar img {
+  width: 50px;
+}
 .navbar h1 {
   font-size: 1.7em;
   color: white;
+}
+.login-page ul {
+  display: flex;
+}
+ul li {
+  list-style-type: none;
+}
+ul li a {
+  text-decoration: none;
+  color: white;
+  letter-spacing: 1px;
+}
+ul li a:hover {
+  border-bottom: 2px solid white;
+  transition: 0.9s ease-in-out;
+  margin-top: 0.6em;
+}
+li {
+  margin-right: 2em;
+  font-size: 20px;
+}
+section > img {
+  width: 100%;
+  height: 1000px;
+}
+.imgFlex {
+  display: flex;
+  align-items: center;
+}
+.imgFlex img {
+  margin-right: 0.6em;
+}
+.Main-text-div {
+  height: 100vh;
+  position: relative;
+}
+.Main-text-div img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+@media screen and (max-width: 610px) {
+  .navbar h1 {
+    font-size: 0.8em;
+    color: white;
+    margin-right: 0.5em;
+  }
+  li {
+    font-size: 13px;
+    margin-right: 1.2em;
+  }
 }

@@ -1,6 +1,7 @@
 import React from "react";
 import Classes from "../Sass/signup.module.scss";
 import logo from "../assets/downloadEjiro.png";
+import google from "../assets/google.png";
 
 const SignUp = () => {
   return (
@@ -15,21 +16,21 @@ const SignUp = () => {
         </aside>
         <section className={Classes["signinwithgoogle"]}>
           <button>
-            <img src="" alt="" /> <span>Sign up with Google</span>
+            <img src={google} alt="" /> <span>Sign up with Google</span>
           </button>
         </section>
         <p>or</p>
         <form>
-          <div className="email-section">
+          <div className={Classes["email-section"]}>
             <label htmlFor="">What's your email</label>
-            <input type="text" />
+            <input type="text" placeholder="Enter your email" />
           </div>
-          <div className="password-section">
+          <div className={Classes["password-section"]}>
             <label htmlFor="">Create a password</label>
-            <input type="password" />
+            <input type="password" placeholder="Create a password" />
           </div>
         </form>
-        <div className="sign-up-btn">
+        <div className={Classes["sign-up-btn"]}>
           <button>Sign up</button>
         </div>
       </main>

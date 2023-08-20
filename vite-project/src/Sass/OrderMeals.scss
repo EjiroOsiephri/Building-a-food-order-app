@@ -94,7 +94,7 @@ button:disabled:active {
   background-color: rgb(125, 41, 41);
   color: white;
   border: 1px solid rgb(125, 41, 41);
-  padding: 0.5rem 1.6rem;
+  padding: 1em;
   border-radius: 4px;
   cursor: pointer;
 }
@@ -146,6 +146,19 @@ button:active {
 .zip-label {
   margin-top: 2.6em;
   margin-bottom: 0.8em;
+}
+.fade-in {
+  opacity: 0;
+  animation: fadeInAnimation 1s ease-in forwards;
+}
+
+@keyframes fadeInAnimation {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 @media screen and (max-width: 666px) {
   .app {

@@ -16,7 +16,7 @@ const HomeNavBar = () => {
   const navigate = useNavigate();
 
   const navigatePage = () => {
-    navigate("/all");
+    navigate("/ordermeals/all");
   };
 
   return (
@@ -29,7 +29,7 @@ const HomeNavBar = () => {
         <div className={Classes["login-page"]}>
           <ul>
             <li>
-              <Link>Sign In</Link>
+              <Link>Sign in</Link>
             </li>
             <li>
               <Link>Sign Up</Link>

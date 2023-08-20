@@ -29,10 +29,10 @@ const HomeNavBar = () => {
         <div className={Classes["login-page"]}>
           <ul>
             <li>
-              <Link>Sign in</Link>
+              <Link to="/signup">Sign up</Link>
             </li>
             <li>
-              <Link>Sign Up</Link>
+              <Link>Sign in</Link>
             </li>
           </ul>
         </div>

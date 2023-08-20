@@ -8,6 +8,8 @@ import OrderMeals from "./Components/order section/OrderMeals";
 import axios from "axios";
 import HomeNavBar from "./pages/HomePage";
 import { Route, Routes, useNavigate } from "react-router-dom";
+import SignUp from "./pages/SignUp";
+import "./app.scss";
 
 function App() {
   const [mealCart, setMealCart] = useState([]);
@@ -65,6 +67,7 @@ function App() {
       }}
     >
       <Routes>
+        <Route path="/signup" element={<SignUp />}></Route>
         <Route path="/" element={<HomeNavBar />} />
         {showOrder ? (
           <Route

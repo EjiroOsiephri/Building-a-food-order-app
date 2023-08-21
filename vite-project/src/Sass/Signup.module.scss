@@ -80,6 +80,12 @@
   border: none;
   margin-top: 0.7em;
 }
+.login-div {
+  display: flex;
+  margin-top: 1em;
+  justify-content: space-between;
+  font-weight: 600;
+}
 @media screen and (max-width: 375px) {
   .header-section-sign-up > h1 {
     font-size: 1.4em;

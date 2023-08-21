@@ -16,7 +16,7 @@ const HomeNavBar = () => {
   const navigate = useNavigate();
 
   const navigatePage = () => {
-    navigate("/ordermeals/all");
+    navigate("/signup");
   };
 
   return (

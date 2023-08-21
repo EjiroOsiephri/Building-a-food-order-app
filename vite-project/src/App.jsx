@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import MainHeader from "./Components/MainSection/MainHeader";
 import CartContex from "./Context/CartContext";
 import NavBar from "./Components/NavBar/NavBar";
@@ -7,9 +7,10 @@ import Carts from "./Components/Carts/Carts";
 import OrderMeals from "./Components/order section/OrderMeals";
 import axios from "axios";
 import HomeNavBar from "./pages/HomePage";
-import { Route, Routes, useNavigate } from "react-router-dom";
+import { Navigate, Route, Routes, useNavigate } from "react-router-dom";
 import SignUp from "./pages/SignUp";
 import "./app.scss";
+import SignAuth from "./Context/Sign-Auth";
 
 function App() {
   const [mealCart, setMealCart] = useState([]);
@@ -59,6 +60,8 @@ function App() {
 
   const navigate = useNavigate();
 
+  const ctx = useContext(SignAuth);
+
   return (
     <CartContex.Provider
       value={{
@@ -71,7 +74,7 @@ function App() {
         <Route path="/" element={<HomeNavBar />} />
         {showOrder ? (
           <Route
-            path="/ordermeals/*"
+            path="/ordermeals/"
             element={
               <OrderMeals
                 setShowOrder={setShowOrder}
@@ -81,7 +84,7 @@ function App() {
           />
         ) : (
           <Route
-            path="/ordermeals/all/*"
+            path="/ordermeals/all/"
             element={
               <section>
                 <NavBar
@@ -102,6 +105,7 @@ function App() {
             }
           ></Route>
         )}
+        <Route path="*" element={<Navigate to="/" />}></Route>
       </Routes>
     </CartContex.Provider>
   );
